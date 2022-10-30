@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('normalize.css');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif!important;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input, select.form-select {
+    width: 100%;
+    outline: none;
+    height: 45px;
+    text-indent: 10px;
+    margin-bottom: 25px!important;
+    border-radius: 3px;
+    border: 1px solid #000;
+}
+
+input {
+    text-indent: 10px;
+}
