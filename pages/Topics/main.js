@@ -1,3 +1,15 @@
+const card_header = document.querySelectorAll(".card-header");
+
+card_header.forEach((header) => {
+  header.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const id = this.getAttribute("id");
+    const title = this.querySelector(".card-title>h2").innerText;
+    window.location.href = `./topic.php?id=${id}&titulo=${title}`;
+  });
+});
+
 const imgInput = document.querySelector("#picture-input");
 const pictureImage = document.querySelector(".picture-image");
 pictureImage.innerHTML = "Escolha uma imagem";
@@ -36,24 +48,44 @@ newTopicBtn.addEventListener("click", async function (e) {
   inputHidden.name = "insert";
 });
 
-const editTopicBtn = document.querySelector(".edit-btn");
+const editTopicBtn = document.querySelectorAll(".edit-btn");
 
-editTopicBtn.addEventListener("click", async function (e) {
-  e.preventDefault();
+editTopicBtn.forEach((btn) => {
+  btn.addEventListener("click", async function (e) {
+    e.preventDefault();
 
-  inputHidden.name = "update";
+    inputHidden.name = "update";
 
-  const url = this.getAttribute("href");
-  const data = await fetch(url, {
-    method: "GET",
-  }).catch(function (error) {
-    console.error(error);
+    const url = this.getAttribute("href");
+    const data = await fetch(url, {
+      method: "GET",
+    }).catch(function (error) {
+      console.error(error);
+    });
+
+    const res = await data.json();
+    document.querySelector("#topic-title").value = res.titulo;
+    pictureImage.innerHTML = "Selecione a nova imagem...";
+    inputHidden.value = res.id;
   });
+});
 
-  const res = await data.json();
-  document.querySelector("#topic-title").value = res.titulo;
-  pictureImage.innerHTML = "Selecione a nova imagem...";
-  inputHidden.value = res.id;
+
+const deleteTopicBtn = document.querySelectorAll(".delete-btn");
+deleteTopicBtn.forEach((btn) => {
+  btn.addEventListener("click", async function (e) {
+    e.preventDefault();
+
+    const url = this.getAttribute("href");
+    const data = await fetch(url, {
+      method: "GET",
+    }).catch(function (error) {
+      console.error(error);
+    });
+
+    const res = await data.json();
+    console.log(res);
+  });
 });
 
 topicForm.addEventListener("submit", async function (e) {
@@ -80,14 +112,14 @@ topicForm.addEventListener("submit", async function (e) {
   }
 
   if(inputHidden.name == "update"){
-    var data = await fetch(`./update.php?id=${inputHidden.value}`, {
+    await fetch(`./update.php?id=${inputHidden.value}`, {
       method: "POST",
       body: dataForm
-    }).catch(function (error) {
-      console.error(error);
-    });
-
-    const res = await data.json();
-    console.log(res);
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
   }
+
+  window.location.href = "./essay_topics.php";
 });

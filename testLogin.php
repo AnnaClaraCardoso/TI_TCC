@@ -10,7 +10,7 @@
         $perfil = $_POST['perfil'];
 
         // SQL para verificar se o usuário existe no banco de dados
-        $sql = "SELECT * FROM usuarios WHERE email = '$email' and senha = '$senha'";
+        $sql = "SELECT * FROM usuarios WHERE email = '$email' and senha = '$senha' and perfil = '$perfil'";
 
         $result = $conexao->query($sql);
 
@@ -36,9 +36,9 @@
             print_r($_SESSION['user']);
             // Verica o nível de acesso do usuário, se é estudante ou admin
             if($_SESSION['user']['access-level'] == 1) {
-                header('Location: ./pages/essay_topics.php');
+                header('Location: ./pages/Topics/essay_topics.php');
             } else {
-                header('Location: ./pages/admin.php');
+                header('Location: ./pages/Admin/admin.php');
             }
         }
     }

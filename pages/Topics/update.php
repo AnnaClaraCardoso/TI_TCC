@@ -9,6 +9,15 @@
   if($img_file['size'] > 0)
   {
     // print_r($img_file);
+    $current_file = mysqli_query($conexao, "SELECT * FROM `temas` WHERE `id` = '$id';");
+    if (mysqli_num_rows($current_file) > 0) {
+      while($rowData = mysqli_fetch_array($current_file)){
+        if($rowData['banner_path'] != null) {
+          unlink($rowData["banner_path"]);
+        }
+        
+      }
+    }
     if ($img_file['error']) {
       die('Erro ao enviar arquivo de imagem');
     }
@@ -29,6 +38,15 @@
   else $imgSql = "";
   
   if($pdf_file['size'] > 0) {
+    $current_file = mysqli_query($conexao, "SELECT * FROM `temas` WHERE `id` = '$id';");
+    if (mysqli_num_rows($current_file) > 0) {
+      while($rowData = mysqli_fetch_array($current_file)){
+        if($rowData['material_path'] != null) {
+          unlink($rowData["material_path"]);
+        }
+      }
+    }
+    
     // print_r($pdf_file);
     if($pdf_file['error'])
       die('Erro ao enviar arquivo pdf');
@@ -43,7 +61,7 @@
       else
         $pdf_path = $path_pdfs . $new_pdf_name . '.' . $pdf_extension;
         if(move_uploaded_file($pdf_file['tmp_name'], $pdf_path))
-          $pdfSql = ", `material_path`='$pdf_path', `nome_pdf`='$pdf_name'";
+          $pdfSql = ", `material_path`='$pdf_path', `nome_pdf`='$pdf_name'"; 
           // print_r($pdfSql);
   }
   else $pdfSql = "";
@@ -55,10 +73,10 @@
   $result = mysqli_query($conexao, $sqlUpdate);
   if($result) {
     $return = ['erro' => false, 'msg' => 'Tema atualizado com sucesso'];
-    echo "<script>console.log('Tema atualizado com sucesso!');</>";
   }
   else {
     $return = ['erro' => true, 'msg' => 'Erro ao atualizar tema']; 
   }
 
+  echo json_encode($return);
 ?>

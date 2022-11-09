@@ -34,7 +34,7 @@
     <style>
         .table-bg{
             background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
+            border-radius: 0.375rem;
         }
 
         .box-search{
@@ -66,7 +66,7 @@
 </head>
 <body>
     <?php
-        include('../../components/admin_navbar.php');
+        include('../../components/navbar.php');
     ?>
     <br>
     <br>
