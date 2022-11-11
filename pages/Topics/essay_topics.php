@@ -109,19 +109,7 @@
       align-items: center;
       border-radius: 0.375rem;
     }
-
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      height: 100%;
-      align-items: center;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: rgb(3, 41, 166);
-    }
+    
   </style>
 
   <link rel="stylesheet" href="../../styles/global.css">

@@ -31,37 +31,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
     <title>Página de Administração</title>
-    <style>
-        .table-bg{
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 0.375rem;
-        }
-
-        .box-search{
-            display: flex;
-            justify-content: center;
-            gap: .1%;
-        }
-
-        button.btn-primary {
-            max-height: 45px;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            height: 100%;
-            align-items: center;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: rgb(3, 41, 166);
-        }
-    </style>
 
     <link rel="stylesheet" href="../../styles/global.css">
+    <link rel="stylesheet" href="./styles/admin.css">
 
 </head>
 <body>

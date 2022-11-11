@@ -1,5 +1,4 @@
 const card_header = document.querySelectorAll(".card-header");
-
 card_header.forEach((header) => {
   header.addEventListener("click", function (e) {
     e.preventDefault();

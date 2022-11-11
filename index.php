@@ -7,47 +7,7 @@
     <title>Tela de login</title>
 
     <link rel="stylesheet" href="./styles/global.css">
-
-    <style>
-        button {
-            background: #000;
-            padding: 0;
-        }
-
-        button span {
-            display: block;
-            padding: 8px;
-            font-size: 18px;
-            border: 3px solid #000; 
-            background: #fff;
-            transform: translate(-12px, -8px);
-            font-family: 'IBM Plex Mono', monospace!important;
-            font-weight: 700;
-        }
-
-        button:active span {
-            transform: translate(12px,8px);
-        }
-
-        button:active {
-            background: transparent;
-            border: none;
-        }      
-        
-        .signin-btn {
-            width: 100%;
-        }
-
-        .goto-signUp-btn span {
-            padding-left: 18px;
-            padding-right: 18px;
-        }
-
-        main {
-            display: flex;
-            gap: 5em;
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

@@ -14,7 +14,7 @@
         $cidade = $_POST['cidade'];
         
         // Faz a operação de insert com base no comando sql e armazena o resultado dela
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email,senha,perfil, nivel_escolar, estado, cidade) 
+        $result = mysqli_query($conexao, "INSERT INTO usuarios (nome, email,senha,perfil, nivel_escolar, estado, cidade) 
         VALUES ('$nome', '$email', '$senha', 1, '$nivel_escolar', '$estado','$cidade')");
 
         // Reencaminha para a página de login
@@ -30,7 +30,7 @@
     <title>Formulário | GN</title>
     
     <link rel="stylesheet" href="../styles/global.css">
-    <link rel="stylesheet" href="../styles/signup.css">
+    <link rel="stylesheet" href="./styles/signup.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
