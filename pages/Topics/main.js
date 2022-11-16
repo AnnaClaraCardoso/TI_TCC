@@ -5,7 +5,7 @@ card_header.forEach((header) => {
 
     const id = this.getAttribute("id");
     const title = this.querySelector(".card-title>h2").innerText;
-    window.location.href = `./topic.php?id=${id}&titulo=${title}`;
+    window.location.href = `../Essay/essay.php?id=${id}&titulo=${title}`;
   });
 });
 

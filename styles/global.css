@@ -41,6 +41,17 @@ input, select.form-select {
     border: 1px solid #000;
 }
 
+@media screen and (max-width: 768px) {
+    input, select.form-select {
+        height: 35px;
+        font-size: 14px !important;
+    }
+
+    p {
+        font-size: 14px !important;
+    }
+}
+
 input {
     text-indent: 10px;
 }
