@@ -1,7 +1,7 @@
 <?php
-  include_once('../../dbConfig.php');
+  include_once('../../Config/connection.php');
   $sql = "SELECT * FROM temas ORDER BY id DESC";
-  $result = $conexao->query($sql);
+  $result = $connection->query($sql);
 ?>
 <DOCTYPE html>
 <html lang="en">

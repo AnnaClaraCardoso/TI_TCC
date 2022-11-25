@@ -23,7 +23,7 @@
                     In laborum fugiat do aute tempor mollit qui tempor. Aliquip est nulla velit magna elit voluptate nisi officia consequat. Pariatur ad fugiat sint proident reprehenderit dolore qui minim.
                 </p>
                 <br>
-                <a href="./pages/signup.php">
+                <a href="./pages/SignUp/signup.php">
                     <button class="goto-signUp-btn"><span>Criar uma conta</span></button>
                 </a>
                 <br>

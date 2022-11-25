@@ -3,7 +3,7 @@
     if(isset($_POST['submit']))
     {
         // Conecta com o banco de dados
-        include_once('../dbConfig.php');
+        include_once('../Config/connection.php');
 
         // Armazena o valor dos inputs
         $nome = $_POST['nome'];
@@ -14,7 +14,7 @@
         $cidade = $_POST['cidade'];
         
         // Faz a operação de insert com base no comando sql e armazena o resultado dela
-        $result = mysqli_query($conexao, "INSERT INTO usuarios (nome, email,senha,perfil, nivel_escolar, estado, cidade) 
+        $result = mysqli_query($connection, "INSERT INTO usuarios (nome, email,senha,perfil, nivel_escolar, estado, cidade) 
         VALUES ('$nome', '$email', '$senha', 1, '$nivel_escolar', '$estado','$cidade')");
 
         // Reencaminha para a página de login

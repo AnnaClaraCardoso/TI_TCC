@@ -1,6 +1,6 @@
 <?php
   // isset -> serve para saber se uma variável está definida
-  include_once('../../dbConfig.php');
+  include_once('../../Config/connection.php');
   $id = !empty($_GET['id']) ? $_GET['id'] : null;
   $topic_title = isset($_POST['topic-title']) ? $_POST['topic-title'] : null;
   $img_file = isset($_FILES['picture-input']) ? $_FILES['picture-input'] : null;
@@ -9,7 +9,7 @@
   if($img_file['size'] > 0)
   {
     // print_r($img_file);
-    $current_file = mysqli_query($conexao, "SELECT * FROM `temas` WHERE `id` = '$id';");
+    $current_file = mysqli_query($connection, "SELECT * FROM `temas` WHERE `id` = '$id';");
     if (mysqli_num_rows($current_file) > 0) {
       while($rowData = mysqli_fetch_array($current_file)){
         if($rowData['banner_path'] != null) {
@@ -38,7 +38,7 @@
   else $imgSql = "";
   
   if($pdf_file['size'] > 0) {
-    $current_file = mysqli_query($conexao, "SELECT * FROM `temas` WHERE `id` = '$id';");
+    $current_file = mysqli_query($connection, "SELECT * FROM `temas` WHERE `id` = '$id';");
     if (mysqli_num_rows($current_file) > 0) {
       while($rowData = mysqli_fetch_array($current_file)){
         if($rowData['material_path'] != null) {
@@ -70,7 +70,7 @@
   WHERE `temas`.`id` = $id;";
 
   // print_r($sqlUpdate);
-  $result = mysqli_query($conexao, $sqlUpdate);
+  $result = mysqli_query($connection, $sqlUpdate);
   if($result) {
     $return = ['erro' => false, 'msg' => 'Tema atualizado com sucesso'];
   }

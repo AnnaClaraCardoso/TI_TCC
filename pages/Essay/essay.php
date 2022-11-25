@@ -1,10 +1,11 @@
 <?php
-  $id = !empty($_GET['id']) ? $_GET['id'] : null;
+  include('../../Authentication/auth.php');
+  $topic_id = !empty($_GET['id']) ? $_GET['id'] : null;
   $title = !empty($_GET['titulo']) ? $_GET['titulo'] : '';
   
-  include_once('../../dbConfig.php');
-  $sql = "SELECT * FROM temas WHERE id = $id";
-  $result = mysqli_query($conexao, $sql);
+  include_once('../../Config/connection.php');
+  $sql = "SELECT * FROM temas WHERE id = $topic_id";
+  $result = mysqli_query($connection, $sql);
 
   if ($result->num_rows > 0) {
     while($row = mysqli_fetch_assoc($result)) {
@@ -36,25 +37,22 @@
 <body>
   <?php
     include_once('../../components/navbar.php');
-    include('../../auth.php');
-    $topic_id = $_GET['id'];
   ?>
   <header style="background-image: url('<?php echo $banner_path ?>');" class="topic-header">
     <div class="topic-title">
       <h1> <?php echo $title?> </h1>
     </div>
   </header>
-
+  <br><br>
   <div class="container">
-    <main style="height: 100vh;">
-      <h2>Textos de apoio</h2>
-      <object type="application/pdf" width="80%" height="70%" data="<?php echo $material_path ?>"></object>
+    <main class="row" style="height: 100vh;">
+      <object class="col-md-6" type="application/pdf" width="100%" height="80%" data="<?php echo $material_path ?>"></object>
       
-      <form action="submit_essay.php?<?php echo 'tema='.$topic_id.'&usuario='.$id?>" method="post">
+      <form id="essay-form" class="col-md-6" action="insert.php?<?php echo 'tema='.$topic_id.'&usuario='.$id?>" method="post">
         <textarea name="content" id="editor">
-            &lt;p&gt;This is some sample content.&lt;/p&gt;
+            &lt;p&gt;Inicie aqui sua redação com base nos textos motivadores ao lado.&lt;/p&gt;
         </textarea>
-        <p><input type="submit" value="Submit"></p>
+        <p><input type="submit" value="Enviar para correção"></p>
       </form>
     </main>
   </div>
@@ -62,9 +60,8 @@
   <script src="https://cdn.ckeditor.com/ckeditor5/35.3.0/classic/ckeditor.js"></script>
 
   <script type="module">
-
     ClassicEditor
-      .create( document.querySelector( '#editor' ))
+    .create( document.querySelector( '#editor' ))
     .catch( error => {
       console.error( error );
     } );

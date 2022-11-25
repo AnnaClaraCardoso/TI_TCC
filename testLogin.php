@@ -4,7 +4,7 @@
     if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha']) && !empty($_POST['perfil']))
     {
         // Acessa o banco de dados e armazena o valor dos inputs do form de login
-        include_once('dbConfig.php');
+        include_once('Config/connection.php');
         $email = $_POST['email'];
         $senha = md5($_POST['senha']);
         $perfil = $_POST['perfil'];
@@ -12,7 +12,7 @@
         // SQL para verificar se o usuário existe no banco de dados
         $sql = "SELECT * FROM usuarios WHERE email = '$email' and senha = '$senha' and perfil = '$perfil'";
 
-        $result = $conexao->query($sql);
+        $result = $connection->query($sql);
 
         
         if(mysqli_num_rows($result) < 1)

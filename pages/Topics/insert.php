@@ -1,6 +1,6 @@
 <?php
 
-  include_once('../../dbConfig.php');
+  include_once('../../Config/connection.php');
   // $topic_title = isset($_POST['topic-title']) ? $_POST['topic-title'] : '';
   // $img_file = isset($_FILES['picture-input']) ? $_FILES['picture-input'] : '';
   // $pdf_file = isset($_FILES['pdf-input']) ? $_FILES['pdf-input'] : '';
@@ -33,7 +33,7 @@
 
       if(move_uploaded_file($img_file['tmp_name'], $img_path) && move_uploaded_file($pdf_file['tmp_name'], $pdf_path)) {
         $sqlInsert = "INSERT INTO `temas` (`titulo`, `banner_path`, `nome_img`, `material_path`, `nome_pdf`) VALUES ('$topic_title', '$img_path', '$img_name', '$pdf_path', '$pdf_name')";
-        $result = mysqli_query($conexao, $sqlInsert);
+        $result = mysqli_query($connection, $sqlInsert);
         if($result)
           $return = ['erro' => false, 'msg' => 'Tema adicionado com sucesso'];
         else

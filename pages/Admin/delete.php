@@ -2,18 +2,18 @@
 
     if(!empty($_GET['id']))
     {
-        include_once('dbConfig.php');
+        include_once('Config/connection.php');
 
         $id = $_GET['id'];
 
         $sqlSelect = "SELECT *  FROM usuarios WHERE id=$id";
 
-        $result = $conexao->query($sqlSelect);
+        $result = $connection->query($sqlSelect);
 
         if($result->num_rows > 0)
         {
             $sqlDelete = "DELETE FROM usuarios WHERE id=$id";
-            $resultDelete = $conexao->query($sqlDelete);
+            $resultDelete = $connection->query($sqlDelete);
         }
     }
     header('Location: ./pages/admin.php');

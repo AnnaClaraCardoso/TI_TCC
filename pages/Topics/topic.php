@@ -2,9 +2,9 @@
   $id = !empty($_GET['id']) ? $_GET['id'] : null;
   $title = !empty($_GET['titulo']) ? $_GET['titulo'] : '';
   
-  include_once('../../dbConfig.php');
+  include_once('../../Config/connection.php');
   $sql = "SELECT * FROM temas WHERE id = $id";
-  $result = mysqli_query($conexao, $sql);
+  $result = mysqli_query($connection, $sql);
 
   if ($result->num_rows > 0) {
     while($row = mysqli_fetch_assoc($result)) {
@@ -36,7 +36,7 @@
 <body>
   <?php
     include_once('../../components/navbar.php');
-    include('../../auth.php');
+    include('../../Authentication/auth.php');
     $topic_id = $_GET['id'];
   ?>
   <header style="background-image: url('<?php echo $banner_path ?>');" class="topic-header">

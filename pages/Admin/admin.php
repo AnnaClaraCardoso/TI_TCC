@@ -1,8 +1,8 @@
 <?php
-    include_once('../../dbConfig.php');
+    include_once('../../Config/connection.php');
 
     if (!isset($_SESSION)) session_start();
-    include('../../auth.php');
+    include('../../Authentication/auth.php');
 
     if($perfil == 1) {
         header("Location: ../../index.php");
@@ -17,7 +17,7 @@
         {
             $sql = "SELECT * FROM usuarios ORDER BY id DESC";
         }
-        $result = $conexao->query($sql);
+        $result = $connection->query($sql);
     }
 ?>
 <!DOCTYPE html>

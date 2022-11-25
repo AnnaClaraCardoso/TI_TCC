@@ -1,6 +1,6 @@
 <?php
   if (!isset($_SESSION)) session_start();
-  include('../../auth.php');
+  include('../../Authentication/auth.php');
   echo "
     <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">
       <div class=\"container-fluid\">
