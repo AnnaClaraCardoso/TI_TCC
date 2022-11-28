@@ -4,8 +4,8 @@
   $title = !empty($_GET['titulo']) ? $_GET['titulo'] : '';
   
   include_once('../../Config/connection.php');
-  $sql = "SELECT * FROM temas WHERE id = $topic_id";
-  $result = mysqli_query($connection, $sql);
+  $sql = "SELECT * FROM temas WHERE id = '$topic_id';";
+  $result = $connection->query($sql);
 
   if ($result->num_rows > 0) {
     while($row = mysqli_fetch_assoc($result)) {

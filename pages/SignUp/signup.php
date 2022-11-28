@@ -3,7 +3,7 @@
     if(isset($_POST['submit']))
     {
         // Conecta com o banco de dados
-        include_once('../Config/connection.php');
+        include_once('../../Config/connection.php');
 
         // Armazena o valor dos inputs
         $nome = $_POST['nome'];
@@ -12,13 +12,30 @@
         $nivel_escolar = $_POST['nivel-escolar'];
         $estado = $_POST['estado'];
         $cidade = $_POST['cidade'];
-        
-        // Faz a operação de insert com base no comando sql e armazena o resultado dela
-        $result = mysqli_query($connection, "INSERT INTO usuarios (nome, email,senha,perfil, nivel_escolar, estado, cidade) 
-        VALUES ('$nome', '$email', '$senha', 1, '$nivel_escolar', '$estado','$cidade')");
 
-        // Reencaminha para a página de login
-        header('Location: ../index.php');
+        // Verifica se o usuário já existe
+        $sqlSelect = "SELECT * FROM usuarios WHERE email='$email'";
+        $result = $connection->query($sqlSelect);
+        if($result->num_rows > 0)
+        {
+            echo "<script>alert('Usuário já cadastrado!')</script>";
+        }
+        else
+        {
+            // Insere os dados no banco de dados
+            $sqlInsert = "INSERT INTO usuarios (nome, email, senha, perfil, nivel_escolar, estado, cidade) VALUES ('$nome', '$email', '$senha', 1, '$nivel_escolar', '$estado', '$cidade')";
+            $resultInsert = $connection->query($sqlInsert);
+            if($resultInsert)
+            {
+                echo "<script>alert('Usuário cadastrado com sucesso!')</script>";
+            }
+            else
+            {
+                echo "<script>alert('Erro ao cadastrar usuário!')</script>";
+            }
+            // Reencaminha para a página de login
+            header('Location: ../../index.php');
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -29,7 +46,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário | GN</title>
     
-    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../../styles/global.css">
     <link rel="stylesheet" href="./styles/signup.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -106,7 +123,7 @@
                 </div>
             </form>
         </main>
-        <a href="../index.php">Voltar</a>
+        <a href="../../index.php">Voltar</a>
     </div>
 
     <script>

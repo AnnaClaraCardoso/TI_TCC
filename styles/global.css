@@ -41,6 +41,17 @@ input, select.form-select {
     border: 1px solid #000;
 }
 
+.comments-input form input[type=number]::-webkit-inner-spin-button,
+.comments-input form input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+
+input[type=number] { 
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+}
+
 @media screen and (max-width: 768px) {
     input, select.form-select {
         height: 35px;

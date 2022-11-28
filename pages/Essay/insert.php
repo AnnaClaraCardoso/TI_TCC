@@ -6,14 +6,15 @@
   $editor_data = isset($_POST['content']) ? $_POST['content'] : '';
 
   // print_r($editor_data);
-  $sql = "INSERT INTO redacoes (id_usuario, id_tema, conteudo, status_correcao) VALUES ('$user', '$topic', '$editor_data', 'Aguardando correção')";
+  $sql = "INSERT INTO redacoes (id_usuario, id_tema, conteudo) VALUES ('$user', '$topic', '$editor_data')";
   
-  $result = mysqli_query($connection, $sql);
-
-  if($result){
-    print_r("Redação inserida com sucesso!");
-  }else{
-    print_r("Erro ao inserir redação!");
+  if(mysqli_query($connection, $sql)) {
+    echo "<script>alert('Redação enviada com sucesso!');</script>";
+  } else {
+    echo "<script>alert('Erro ao enviar redação!');</script>";
   }
 
+  header('Location: ./essay.php?tema='.$topic.'&usuario='.$user);
+
+  $connection->close();
 ?>

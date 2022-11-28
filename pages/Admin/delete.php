@@ -2,7 +2,7 @@
 
     if(!empty($_GET['id']))
     {
-        include_once('Config/connection.php');
+        include_once('../../Config/connection.php');
 
         $id = $_GET['id'];
 
@@ -16,5 +16,5 @@
             $resultDelete = $connection->query($sqlDelete);
         }
     }
-    header('Location: ./pages/admin.php');
+    header('Location: ./admin.php');
 ?>
