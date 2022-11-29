@@ -1,6 +1,6 @@
 <?php
   include('../../Authentication/auth.php');
-  $topic_id = !empty($_GET['id']) ? $_GET['id'] : null;
+  $topic_id = !empty($_GET['tema']) ? $_GET['tema'] : null;
   $title = !empty($_GET['titulo']) ? $_GET['titulo'] : '';
   
   include_once('../../Config/connection.php');
@@ -48,11 +48,11 @@
     <main class="row" style="height: 100vh;">
       <object class="col-md-6" type="application/pdf" width="100%" height="80%" data="<?php echo $material_path ?>"></object>
       
-      <form id="essay-form" class="col-md-6" action="insert.php?<?php echo 'tema='.$topic_id.'&usuario='.$id?>" method="post">
+      <form id="essay-form" class="col-md-6" action="insert.php?<?php echo 'tema='.$topic_id.'&usuario='.$id.'&titulo='.$title?>" method="post">
         <textarea name="content" id="editor">
             &lt;p&gt;Inicie aqui sua redação com base nos textos motivadores ao lado.&lt;/p&gt;
         </textarea>
-        <p><input type="submit" value="Enviar para correção"></p>
+        <p><input type="submit" class="btn btn-primary" style="width: 100% !important; border-radius: 0 0 2px 2px !important;" value="Enviar para correção"></p>
       </form>
     </main>
   </div>

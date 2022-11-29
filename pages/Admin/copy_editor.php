@@ -46,12 +46,13 @@
           echo '
           <section class="comments-input">
             <form action="comment.php?redacao='. $redacao. '&corretor='. $id .'" method="post">
-              <textarea name="content" id="editor">
+              <textarea name="content" id="editor" style="color=">
                 &lt;p&gt;Insira aqui seus comentários acerca da redação, realçando trechos que deveram ser revisados e seus devidos motivos, bem como as notas para cada uma das competências consideradas pelo ENEM.&lt;/p&gt;
               </textarea>
               <br>
-              <input type="number" name="grade" id="grade" placeholder="Nota final">
-              <p><input type="submit" value="Enviar"></p>
+              <input class="form-control" type="number" name="grade" id="grade" placeholder="Nota final">
+              <br>
+              <p><input class="btn btn-primary" type="submit" value="Enviar"></p>
             </form>
           </section>';
         } else {

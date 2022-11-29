@@ -18,6 +18,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
   <style>
+
+    @import url('../../styles/colors.css');
+
     .container {
       flex-direction: column;
     }
@@ -33,11 +36,12 @@
     .card {
       width: 100%;
       transition: 0.15s;
+      border: 1px solid var(--dark-purple);
     }
 
     .card:hover {
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-      outline: 3px solid cornflowerblue;
+      outline: 3px solid var(--purple);
     }
 
     input[type=file] {
@@ -56,7 +60,7 @@
     align-items: center;
     justify-content: center;
     color: #aaa;
-    border: 2px dashed currentcolor;
+    border: 2px solid currentcolor;
     cursor: pointer;
     font-family: sans-serif;
     transition: color 300ms ease-in-out, background 300ms ease-in-out;

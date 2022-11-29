@@ -14,7 +14,7 @@
     echo "<script>alert('Erro ao enviar redação!');</script>";
   }
 
-  header('Location: ./essay.php?tema='.$topic.'&usuario='.$user);
+  header('Location: ./essay.php?tema='.$topic.'&titulo='.$_GET['titulo']);
 
   $connection->close();
 ?>
