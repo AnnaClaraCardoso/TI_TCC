@@ -59,10 +59,13 @@
                 <h1><strong>Criar uma conta</strong></h1>
                 <div class="row">
                     <div class="col-md-5">
-                        <input type="text" name="nome" placeholder="Nome completo" id="nome" required>
-                        <input type="email" name="email" placeholder="E-mail" id="email" required>
-                        <input type="password" name="senha" placeholder="Senha" id="senha" required>
-                        <input type="password" oninput="confirmPassword()" placeholder="Confirme sua senha" id="confirmar-senha" required>
+                        <input class="form-control" type="text" name="nome" placeholder="Nome completo" id="nome" required>
+                        <br>
+                        <input class="form-control" type="email" name="email" placeholder="E-mail" id="email" required>
+                        <br>
+                        <input class="form-control" type="password" name="senha" placeholder="Senha" id="senha" required>
+                        <br>
+                        <input class="form-control" type="password" oninput="confirmPassword()" placeholder="Confirme sua senha" id="confirmar-senha" required>
                         <span class="help-text"></span>
                     </div>
                     <div class="col-md-5">
@@ -77,7 +80,7 @@
                                 foreach($niveis as $nivel) {
                                     echo "<option value='$nivel'>$nivel</option>";
                                 }
-                            echo "</select>";
+                            echo "</select><br>";
                         ?>
 
                         <?php
@@ -111,14 +114,15 @@
                                 'TO' => 'Tocantins',
                             );
 
-                            echo "<select id='estado' name='estado' class='form-select'>";
+                            echo "<select class='form-select' id='estado' name='estado' class='form-select'>";
                                 foreach($estados as $uf => $nome) {
                                     echo "<option value='$uf'>$nome</option>";
                                 }
-                            echo "</select>";
+                            echo "</select><br>";
                         ?>
-                        <input type="text" placeholder="Cidade" name="cidade" id="cidade">
-                        <button type="submit" onclick="return confirmPassword()" name="submit" id="submit"><span>Cadastrar</span></button>
+                        <input class="form-control" type="text" placeholder="Cidade" name="cidade" id="cidade">
+                        <br>
+                        <button class="btn btn-primary" type="submit" onclick="return confirmPassword()" name="submit" id="submit">Cadastrar</button>
                     </div>
                 </div>
             </form>

@@ -43,10 +43,6 @@
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
       outline: 3px solid var(--purple);
     }
-
-    input[type=file] {
-      border: none;
-    }
     
     #picture-input {
     display: none;
@@ -113,6 +109,10 @@
       align-items: center;
       border-radius: 0.375rem;
     }
+
+    h2, label {
+      color: var(--darker-gray);
+    }
     
   </style>
 
@@ -129,15 +129,16 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <h2 class="modal-title fs-5" id="exampleModalLabel">Insira um novo tema</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form id="topic-form" enctype="multipart/form-data" method="POST">
               <input type="text" name="operation" hidden value="">
               <div class="topic-title-input-group">
-                <input type="text" id="topic-title" name="topic-title" value="" placeholder="Descrição do tema">
+                <input class="form-control" type="text" id="topic-title" name="topic-title" value="" placeholder="Descrição do tema">
               </div>
+              <br>
               <div class="banner-input-group">
                 <label for="picture-input" class="form-label picture">
                   <span class="picture-image"></span>
@@ -145,9 +146,10 @@
                 <input type="file" name="picture-input" id="picture-input">
                 <span id="img-input-help-text"></span>
               </div>
+              <br>
               <div class="pdf_file-input-group">
                 <label for="pdf-input" class="form-label">Adicione o arquivo com orientações para a produção textual</label>
-                <input type="file" name="pdf-input" id="pdf-input">
+                <input class="form-control" type="file" name="pdf-input" id="pdf-input">
                 <span id="img-input-help-text"></span>
               </div>
               <div class="modal-footer">

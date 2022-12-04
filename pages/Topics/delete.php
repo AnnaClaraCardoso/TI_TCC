@@ -11,15 +11,15 @@
     }
   }
      
-  $sqlDelete = "DELETE FROM `temas` WHERE `temas`.`id` = $id;";
+  $sqlDelete = "DELETE FROM temas WHERE `temas`.id = $id;";
   print_r($sqlDelete);
   $result = mysqli_query($connection, $sqlDelete);
+  
   if($result) {
-    $return = ['erro' => false, 'msg' => 'Tema excluído com sucesso!'];
-  }
-  else {
-    $return = ['erro' => true, 'msg' => 'Erro ao excluir tema.']; 
+    echo "<script>alert('Tema deletado com sucesso!')</script>";
+  } else {
+    echo "<script>alert('Erro ao deletar tema!')</script>";
   }
 
-  echo json_encode($return);
+  header('Location: ./essay_topics.php');
 ?>

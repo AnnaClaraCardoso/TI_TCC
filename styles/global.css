@@ -48,7 +48,10 @@ body {
 
 body > div.container > main > section.comments-input > form > div > div.ck.ck-editor__main > div > p, 
 body > div.container > main > section.comments-input > form > div > div.ck.ck-editor__main > div > ul > li,
-body > div.container > main > section.comments-input > form > div > div.ck.ck-editor__main > div > ol > li {
+body > div.container > main > section.comments-input > form > div > div.ck.ck-editor__main > div > ol > li,
+#essay-form > div > div.ck.ck-editor__main > div > p,
+#essay-form > div > div.ck.ck-editor__main > div > ul > li,
+#essay-form > div > div.ck.ck-editor__main > div > ol > li {
     color: var(--darker-gray)!important;
 }
 

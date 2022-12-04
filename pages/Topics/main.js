@@ -69,24 +69,6 @@ editTopicBtn.forEach((btn) => {
   });
 });
 
-
-const deleteTopicBtn = document.querySelectorAll(".delete-btn");
-deleteTopicBtn.forEach((btn) => {
-  btn.addEventListener("click", async function (e) {
-    e.preventDefault();
-
-    const url = this.getAttribute("href");
-    const data = await fetch(url, {
-      method: "GET",
-    }).catch(function (error) {
-      console.error(error);
-    });
-
-    const res = await data.json();
-    console.log(res);
-  });
-});
-
 topicForm.addEventListener("submit", async function (e) {
   e.preventDefault();
 
